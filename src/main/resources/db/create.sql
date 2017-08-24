@@ -2,10 +2,15 @@ SET MODE PostgreSQL;
 
 CREATE TABLE IF NOT EXISTS items (
     id int PRIMARY KEY auto_increment,
+    type VARCHAR,
     name VARCHAR,
     price INT,
     dateSold VARCHAR,
-    sale BOOLEAN
+    sale BOOLEAN,
+    capacity INT,
+    color VARCHAR,
+    gear INT,
+    purpose VARCHAR
     );
 
 CREATE TABLE IF NOT EXISTS orders (

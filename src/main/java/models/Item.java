@@ -6,18 +6,24 @@ import java.time.LocalDateTime;
  * Created by Guest on 8/23/17.
  */
 public class Item {
+    private String type;
     private String name;
     private int price;
     private String dateSold;
     private boolean sale;
     private int id;
 
-    public Item(String name, int price, String dateSold, boolean sale) {
+    public Item(String type, String name, int price, String dateSold, boolean sale) {
+        this.type = type;
         this.name = name;
         this.price = price;
         this.dateSold = dateSold;
         this.sale = sale;
     }
+
+    public String getType(){return type;}
+
+    public void setType() {this.type = type;}
 
     public String getName() {
         return name;

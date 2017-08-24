@@ -21,7 +21,7 @@ public interface ItemDao {//create
     Item findById(int id); //B & C
 //
     //update item info
-    void update(int id, String name, int price, String dateSold, boolean sale); //L
+    void update(int id, String type, String name, int price, String dateSold, boolean sale); //L
 //
 //    //delete individual item
 //    void deleteById(int id); //K

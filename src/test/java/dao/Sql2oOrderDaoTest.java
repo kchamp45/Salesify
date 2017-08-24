@@ -43,11 +43,11 @@ public class Sql2oOrderDaoTest {
         return new Order("2");
     }
     public Item setupNewItem() {
-        return new Item("backpack", 20, "08-23-2017", true);
+        return new Item("backpack", "Jansen",20, "08-23-2017", true);
     }
 
     public Item setupNewItem2() {
-        return new Item("tent", 50, "08-21-2017", false);
+        return new Item("tent", "Coleman", 50, "08-21-2017", false);
     }
 
     @Test

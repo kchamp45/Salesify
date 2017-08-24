@@ -42,11 +42,11 @@ public class Sql2oItemDaoTest {
     }
 
     public Item setupNewItem() {
-        return new Item("backpack", 20, "08-23-2017", true);
+        return new Item("backpack", "Jansen", 20, "08-23-2017", true);
     }
 
     public Item setupNewItem2() {
-        return new Item("tent", 50, "08-21-2017", false);
+        return new Item("tent", "Coleman", 50, "08-21-2017", false);
     }
 
     @Test
@@ -69,7 +69,7 @@ public class Sql2oItemDaoTest {
         String initialName = "backpack";
         Item item = setupNewItem();
         itemDao.add(item);
-        itemDao.update(item.getId(), "napsack", 20, "08-22-2017", true);
+        itemDao.update(item.getId(), "napsack", "North Face", 20, "08-22-2017", true);
         Item updatedItem = itemDao.findById(item.getId());
         assertNotEquals(initialName, updatedItem.getName());
 

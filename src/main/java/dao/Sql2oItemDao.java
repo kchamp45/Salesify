@@ -14,16 +14,18 @@ import java.util.List;
  * Created by Guest on 8/23/17.
  */
 public class Sql2oItemDao implements ItemDao{
-    private final Sql2o sql2o;
+    public final Sql2o sql2o;
 
     public Sql2oItemDao(Sql2o sql2o) {
         this.sql2o = sql2o;
     }
     @Override
     public void add(Item item){
-        String sql = "INSERT INTO items (name, price, dateSold, sale) VALUES (:name, :price, :dateSold, :sale)";
+        String sql = "INSERT INTO items (type, name, price, dateSold, sale) VALUES (:type, :name, :price, :dateSold, :sale)";
+
         try (Connection con = sql2o.open()) {
             int id = (int) con.createQuery(sql)
+                    .addParameter("type", item.getType())
                     .addParameter("name", item.getName())
                     .addParameter("price", item.getPrice())
                     .addParameter("dateSold", item.getDateSold())
@@ -57,11 +59,12 @@ public class Sql2oItemDao implements ItemDao{
     }
 
     @Override
-    public void update(int id, String newName, int newPrice, String newDate, boolean newSale) {
-        String sql = "UPDATE items SET (name, price, dateSold, sale) = (:name, :price, :dateSold, :sale) WHERE id = :id";
+    public void update(int id, String newType, String newName, int newPrice, String newDate, boolean newSale) {
+        String sql = "UPDATE items SET (type, name, price, dateSold, sale) = (:type, :name, :price, :dateSold, :sale) WHERE id = :id";
         try (Connection con = sql2o.open()) {
             con.createQuery(sql)
                     .addParameter("id", id)
+                    .addParameter("type", newType)
                     .addParameter("name", newName)
                     .addParameter("price", newPrice)
                     .addParameter("dateSold", newDate)
