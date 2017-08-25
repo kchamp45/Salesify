@@ -54,6 +54,7 @@ public class Sql2oItemDao implements ItemDao{
     public List<Item> getAll() {
         try (Connection con = sql2o.open()) {
             return con.createQuery("SELECT * FROM items")
+                    .throwOnMappingFailure(false)
                     .executeAndFetch(Item.class);
         }
     }

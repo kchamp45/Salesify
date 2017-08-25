@@ -8,7 +8,7 @@ import org.sql2o.Sql2oException;
 
 import java.util.List;
 
-class Sql2oBackpackDao extends Sql2oItemDao implements ItemDao {
+public class Sql2oBackpackDao extends Sql2oItemDao implements ItemDao {
 
     public Sql2oBackpackDao(Sql2o sql2o) {
         super(sql2o);

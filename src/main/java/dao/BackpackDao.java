@@ -5,9 +5,6 @@ import models.Item;
 
 import java.util.List;
 
-/**
- * Created by Guest on 8/24/17.
- */
 public interface BackpackDao {
     List<Backpack> getAll(String type);
 
